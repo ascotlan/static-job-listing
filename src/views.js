@@ -1,4 +1,6 @@
 import { getFilters } from "./filters";
 import { getListing } from "./job-listing";
 
-console.log(getListing());
+//create DOM structure func
+
+//create renderJobs func
