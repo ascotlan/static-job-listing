@@ -1,10 +1,24 @@
-let jobs = [];
+import getResponse from "./requests";
+import { renderJobs } from "./views";
+
+let jobs;
 
 //read data from file
+const getData = async () => {
+  jobs = await getResponse();
+  save();
+  renderJobs();
+};
+
+const save = () => {
+  localStorage.setItem("jobs", JSON.stringify(jobs));
+};
+
 const loadData = () => {
-  const jobsJSON = require("/public/data.json");
+  const jobsJSON = localStorage.getItem("jobs");
+
   try {
-    jobs = jobsJSON ? jobsJSON : [];
+    jobs = jobsJSON ? JSON.parse(jobsJSON) : [];
   } catch (e) {
     jobs = [];
   }
@@ -15,4 +29,4 @@ loadData();
 //get data function
 const getListing = () => jobs;
 
-export { getListing };
+export { getListing, getData };

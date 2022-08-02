@@ -1,4 +1,6 @@
 import { getFilters } from "./filters";
-import { getListing } from "./job-listing";
+import { getListing, getData } from "./job-listing";
+
+getData();
 
 console.log(getListing());
