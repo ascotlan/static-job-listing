@@ -1,5 +1,5 @@
 import getResponse from "./requests";
-import { renderJobs } from "./views";
+import { renderJobs, renderFilters } from "./views";
 
 let jobs;
 
@@ -8,6 +8,7 @@ const getData = async () => {
   jobs = await getResponse();
   save();
   renderJobs();
+  renderFilters();
 };
 
 const save = () => {
