@@ -4,12 +4,13 @@ import { getListing } from "./job-listing";
 //create DOM structure func
 const generateDOMStructure = (listing) => {
   const jobEl = document.createElement("div");
+  const jobDetailsEl = document.createElement("div");
   const logoEl = document.createElement("img");
   const headerEl = document.createElement("div");
   const nameEl = document.createElement("p");
   const newEl = document.createElement("span");
   const featuredEl = document.createElement("span");
-  const titleEl = document.createElement("h2");
+  const titleEl = document.createElement("a");
   const footerEl = document.createElement("ul");
   const postedAtEl = document.createElement("li");
   const contractEl = document.createElement("li");
@@ -38,11 +39,13 @@ const generateDOMStructure = (listing) => {
   if (listing.featured) {
     featuredEl.textContent = "featured";
     featuredEl.classList.add("featured");
+    jobEl.classList.add("job--featured");
     headerEl.appendChild(featuredEl);
   }
 
-  titleEl.textcontent = listing.position;
+  titleEl.textContent = listing.position;
   titleEl.classList.add("job-position");
+  titleEl.setAttribute("href", "#");
 
   postedAtEl.textContent = listing.postedAt;
   contractEl.textContent = listing.contract;
@@ -97,11 +100,13 @@ const generateDOMStructure = (listing) => {
   }
 
   jobEl.classList.add("job");
+  jobDetailsEl.classList.add("job-details");
 
   jobEl.appendChild(logoEl);
-  jobEl.appendChild(headerEl);
-  jobEl.appendChild(titleEl);
-  jobEl.appendChild(footerEl);
+  jobDetailsEl.appendChild(headerEl);
+  jobDetailsEl.appendChild(titleEl);
+  jobDetailsEl.appendChild(footerEl);
+  jobEl.appendChild(jobDetailsEl);
   jobEl.appendChild(filterEl);
 
   roleEl.addEventListener("click", (e) => {
@@ -163,7 +168,7 @@ const renderFilters = () => {
   const keys = Object.keys(filters);
   const values = Object.values(filters);
   if (values.join("").length !== 0) {
-    filterEl.classList.remove("no-filter");
+    document.querySelector(".container").classList.add("no-filter");
     keys.forEach((key) => {
       if ((key === "role" || key === "level") && filters[key]) {
         const containerFilterEl = document.createElement("div");
@@ -236,7 +241,7 @@ const renderFilters = () => {
     });
   } else {
     filterEl.innerHTML = "";
-    filterEl.classList.add("no-filter");
+    document.querySelector(".container").classList.remove("no-filter");
   }
 
   //handle input from 'clear' button to reset all filter object values to ''
