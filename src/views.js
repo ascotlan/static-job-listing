@@ -152,7 +152,9 @@ const renderJobs = () => {
 };
 
 const renderFilters = () => {
-  const filterEl = document.querySelector(".filters");
+  const filterEl = document.querySelector(".container-filter");
+  const containerEl = document.createElement("div");
+  containerEl.classList.add("filters");
   const filters = getFilters();
 
   filterEl.innerHTML = "";
@@ -161,6 +163,7 @@ const renderFilters = () => {
   const keys = Object.keys(filters);
   const values = Object.values(filters);
   if (values.join("").length !== 0) {
+    filterEl.classList.remove("no-filter");
     keys.forEach((key) => {
       if ((key === "role" || key === "level") && filters[key]) {
         const containerFilterEl = document.createElement("div");
@@ -169,9 +172,14 @@ const renderFilters = () => {
         btn1.innerHTML = "x";
         btn1.setAttribute("name", key);
         jobEl.textContent = filters[key].trim();
+
+        btn1.classList.add("filter-remove-btn");
+        jobEl.classList.add("filter-text");
+        containerFilterEl.classList.add("filter");
+
         containerFilterEl.appendChild(jobEl);
         containerFilterEl.appendChild(btn1);
-        filterEl.appendChild(containerFilterEl);
+        containerEl.appendChild(containerFilterEl);
 
         btn1.addEventListener("click", (e) => {
           const obj = {};
@@ -187,12 +195,17 @@ const renderFilters = () => {
             const containerFilterEl = document.createElement("div");
             const othersEl = document.createElement("span");
             const btn2 = document.createElement("button");
+
+            containerFilterEl.classList.add("filter");
+            btn2.classList.add("filter-remove-btn");
+            othersEl.classList.add("filter-text");
+
             btn2.innerHTML = "x";
             btn2.setAttribute("name", key);
             othersEl.textContent = item;
             containerFilterEl.appendChild(othersEl);
             containerFilterEl.appendChild(btn2);
-            filterEl.appendChild(containerFilterEl);
+            containerEl.appendChild(containerFilterEl);
 
             btn2.addEventListener("click", (e) => {
               const obj = {};
@@ -207,6 +220,8 @@ const renderFilters = () => {
     });
     const clearBtnEl = document.createElement("button");
     clearBtnEl.innerHTML = "Clear";
+    clearBtnEl.classList.add("filter-clear");
+    filterEl.appendChild(containerEl);
     filterEl.appendChild(clearBtnEl);
 
     clearBtnEl.addEventListener("click", (e) => {
@@ -221,6 +236,7 @@ const renderFilters = () => {
     });
   } else {
     filterEl.innerHTML = "";
+    filterEl.classList.add("no-filter");
   }
 
   //handle input from 'clear' button to reset all filter object values to ''
