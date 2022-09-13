@@ -1,0 +1,170 @@
+/*rem and em do NOT depend on html font-size in media queries!
+Instead, 1rem = 1em = 16px */
+
+/******************************/
+/* BELOW 1248px (Landscape tablets) */
+/******************************/
+@media (max-width: 78em) {
+  .job-logo {
+    position: absolute;
+    transform: scale(75%);
+    top: -4rem;
+    left: 2rem;
+  }
+
+  .job {
+    grid-template-columns: 1fr 1fr;
+    padding: 4.8rem 3.2rem;
+  }
+
+  .job-cards {
+    gap: 6.4rem;
+    padding: 3.2rem 8rem 0;
+  }
+
+  .btn {
+    padding: 0.8rem;
+  }
+}
+
+/******************************/
+/* BELOW 1024px (Tablets) */
+/******************************/
+
+@media (max-width: 64em) {
+  .job {
+    grid-template-columns: 1fr;
+    padding: 4.8rem 3.2rem;
+    row-gap: 3.2rem;
+  }
+
+  .job-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .job-filters {
+    justify-self: start;
+  }
+
+  .job-details {
+    border-bottom: 1px solid #000;
+    padding-bottom: 3.2rem;
+  }
+
+  .job--featured {
+    background: linear-gradient(90deg, hsl(180, 29%, 50%) 1%, #fff 1%);
+  }
+}
+
+/******************************/
+/* BELOW 880px (Smaller Tablets) */
+/******************************/
+
+@media (max-width: 55em) {
+  .container-filter {
+    height: 9.6rem;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+
+  .job-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2.4rem;
+    row-gap: 2.4rem;
+  }
+
+  .job--featured {
+    background: linear-gradient(90deg, hsl(180, 29%, 50%) 1.5%, #fff 1.5%);
+  }
+}
+
+/******************************/
+/* BELOW 656px (Phones) */
+/******************************/
+
+@media (max-width: 41em) {
+  .container-filter {
+    grid-template-columns: 1fr min-content;
+    margin: 0 2.4rem;
+    padding: 0 2.4rem;
+  }
+
+  .job-cards {
+    padding: 0 2.4rem;
+  }
+}
+
+/******************************/
+/* BELOW 448px (Smaller Phones) */
+/******************************/
+
+@media (max-width: 28em) {
+  .container-filter {
+    height: 12.8rem;
+    margin: 0 1.6rem;
+    padding: 0 1.6rem;
+  }
+
+  .job {
+    padding: 4.8rem 2.4rem;
+  }
+
+  .job-cards {
+    padding: 0 1.6rem;
+  }
+
+  .filter-clear {
+    padding: 1.2rem 3.2rem;
+  }
+
+  .job-filters {
+    column-gap: 1.6rem;
+    row-gap: 1.6rem;
+  }
+
+  .job-position {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+  }
+}
+
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+-Font weights
+Default: 500
+bold: 700
+
+-line heights
+
+- Letter spacing
+
+--- 02 COLORS
+
+MAIN COLOR: hsl(180, 29%, 50%) 
+TINTS:  hsl(180, 29%, 45%), hsl(180, 31%, 95%), hsl(180, 52%, 96%)
+ACCENTS:
+GREY COLOR: hsl(180, 8%, 52%), hsl(180, 6%, 36%),  hsl(180, 14%, 20%)
+
+-- 05 SHADOWS
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.07);
+
+-- 06 BORDER-RADIUS
+small: 4px;
+Default: 6px
+
+-- 07 WHITESPACE
+
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
