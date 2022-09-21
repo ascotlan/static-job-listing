@@ -20,6 +20,7 @@ const generateDOMStructure = (listing) => {
   const roleEl = document.createElement("button");
 
   logoEl.setAttribute("src", `${listing.logo}`);
+  logoEl.setAttribute("alt", "Company Logo");
   logoEl.classList.add("job-logo");
 
   headerEl.classList.add("job-company");

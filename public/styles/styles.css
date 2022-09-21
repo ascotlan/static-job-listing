@@ -176,12 +176,13 @@ body {
   color: #fff;
   text-transform: uppercase;
   padding: 0.4rem 1.2rem;
-
+  font-weight: 700;
+  letter-spacing: 0.75px;
   border-radius: 6rem;
 }
 
 .new {
-  background-color: hsl(180, 29%, 45%);
+  background-color: #519494;
 }
 
 .featured {
@@ -190,6 +191,7 @@ body {
 
 .job-logo {
   height: 8.8rem;
+  width: 8.8rem;
 }
 
 .job-position {
@@ -230,8 +232,8 @@ body {
   font-weight: 700;
   padding: 1.2rem;
   border: none;
-  background-color: hsl(180, 31%, 95%);
-  color: hsl(180, 29%, 45%);
+  background-color: #eef6f6;
+  color: #519494;
   border-radius: 0.4rem;
   cursor: pointer;
   transition: all 0.3s;
@@ -262,6 +264,7 @@ bold: 700
 -line heights
 
 - Letter spacing
+ 0.75px;
 
 --- 02 COLORS
 
